@@ -1,0 +1,17 @@
+{
+  "name": "ブックマーク一覧表示　日付つき",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "ブックマークを登録した日付とタイトルを一覧表示します。",
+
+  "action": {
+    "default_icon": {
+      "16": "./images/16.png",
+      "48": "./images/48.png",
+      "128": "./images/128.png"
+    },
+    "default_popup": "./popup/popup.html"
+  },
+
+  "permissions": ["bookmarks"]
+}
