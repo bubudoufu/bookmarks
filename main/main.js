@@ -21,13 +21,10 @@ function getNode(bookmarkTreeNodes) {
     const node = bookmarkTreeNodes[i];
     const clone = template.content.cloneNode(true);
 
-    if (node.children) {
-      getNode(node.children);
-    } else if (node.title && node.url) {
-      clone.querySelector("a").href = node.url;
-      clone.querySelector("a").textContent = node.title;
-      clone.querySelector("span").textContent = time(node.dateAdded);
-    }
+    clone.querySelector("a").href = node.url;
+    clone.querySelector("a").textContent = node.title;
+    clone.querySelector("span").textContent = time(node.dateAdded);
+
     fragment.appendChild(clone);
   }
   document.querySelector("ul").appendChild(fragment);
