@@ -17,16 +17,18 @@ function time(date) {
 function getNode(bookmarkTreeNodes) {
   const fragment = document.createDocumentFragment();
   const template = document.getElementById("template");
-  for (let i = 0; i < bookmarkTreeNodes.length; i++) {
-    const node = bookmarkTreeNodes[i];
+
+  bookmarkTreeNodes.forEach(function (node) {
     const clone = template.content.cloneNode(true);
 
     clone.querySelector("a").href = node.url;
     clone.querySelector("a").textContent = node.title;
-    clone.querySelector("span").textContent = time(node.dateAdded);
+    clone.querySelector(".time").textContent = time(node.dateAdded);
+    clone.querySelector(".remove").id = node.id;
+    clone.querySelector(".remove").title = node.title;
 
     fragment.appendChild(clone);
-  }
+  });
   document.querySelector("ul").appendChild(fragment);
 }
 
