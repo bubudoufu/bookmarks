@@ -1,10 +1,11 @@
+//ブックマーク一覧を取得
 function getTreeNodes() {
   chrome.bookmarks.getRecent(10000, function (bookmarkTreeNodes) {
     const TreeNodes = bookmarkTreeNodes;
     getNode(TreeNodes);
   });
 }
-
+//ブックマークが作成された時間の表示
 function time(date) {
   const timestamp = date;
   let datetime = new Date(timestamp);
@@ -13,7 +14,7 @@ function time(date) {
     datetime.getMonth() + 1
   }月${datetime.getDate()}日`;
 }
-
+// DOM操作で画面に表示
 function getNode(bookmarkTreeNodes) {
   const fragment = document.createDocumentFragment();
   const template = document.getElementById("template");
